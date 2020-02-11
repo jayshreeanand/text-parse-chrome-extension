@@ -2,5 +2,12 @@
   "name": "Taghash",
   "version": "1.0",
   "description": "Add deals to taghash directly from various websites now!",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": "images/logo.png"
+  },
   "manifest_version": 2
 }
