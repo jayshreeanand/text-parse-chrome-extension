@@ -2,12 +2,20 @@
   "name": "Taghash",
   "version": "1.0",
   "description": "Add deals to taghash directly from various websites now!",
-  "permissions": ["storage"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
-
+  "permissions": [
+    "http://*/*",
+    "https://*/*",
+    "unlimitedStorage",
+    "contextMenus",
+    "cookies",
+    "tabs",
+    "notifications",
+    "background"
+  ],
   "content_scripts": [
     {
       "matches": [
@@ -21,5 +29,6 @@
     "default_icon": "images/logo.png"
 
   },
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://cdn.tracxn.com; object-src 'self'",
   "manifest_version": 2
 }
