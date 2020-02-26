@@ -18,5 +18,13 @@ chrome.storage.sync.set({'foo': 'hello', 'bar': 'hi'}, function() {
 
 // Read it using the storage API
 chrome.storage.sync.get(['foo', 'bar'], function(items) {
-  message('Settings retrieved', items);
+  console.log('Settings retrieved', items);
+});
+
+
+chrome.storage.sync.get(null, function(items) {
+  chrome.contextMenus.removeAll();
+  var parent = chrome.contextMenus.create({"id": "tr_parent", "title": "Add as deal to Taghash", "contexts":["selection"]});
+  // var id = chrome.contextMenus.create({"id": "tr_options", "title": "Edit as deal to taghash", "parentId": parent, "contexts":["selection"]});
+  
 });
