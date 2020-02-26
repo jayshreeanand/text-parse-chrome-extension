@@ -1,45 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      button {
-        height: 30px;
-        width: 30px;
-        outline: none;
-      }
-    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-            <div class="features-icons-icon d-flex">
-              <img class="features-img img-fluid m-auto" src="landing-page/img/single-source.svg" alt="">
-            </div>
-            <h3>Single source of Truth</h3>
-            <p class="lead mb-0">Unify organizations deal flow from multiple sources. Eliminate working in silos.</p>
-          </div>
+      <form class="form-signin">
+        <h1 class="h5 mb-3 font-weight-normal">Taghash</h1>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
         </div>
-        <div class="col-lg-4">
-          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-            <div class="features-icons-icon d-flex">
-              <img class="features-img img-fluid m-auto" src="landing-page/img/actionable.svg" alt="">
-            </div>
-            <h3>Actionables</h3>
-            <p class="lead mb-0">Make decisions together. Track progress. Back great entrepreneurs.</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-            <div class="features-icons-icon d-flex">
-              <img class="features-img img-fluid m-auto" src="landing-page/img/intelligence.svg" alt="">
-            </div>
-            <h3>Intelligence</h3>
-            <p class="lead mb-0">Let Taghash be the unified brain for your team. Automate everything.</p>
-          </div>
-        </div>
-      </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">&copy; Taghash 2020</p>
+      </form>
     </div>
   </body>
 </html>
