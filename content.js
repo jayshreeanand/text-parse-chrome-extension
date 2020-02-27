@@ -16,28 +16,43 @@ chrome.storage.sync.get(null, function(items) {
   
 });
 
-chrome.contextMenus.onClicked.addListener(function(info, tab) {
-  if (info.menuItemId == "tr_parent") {
-    click(info, tab);
-  } else {
-    // click(info, tab);
-  }
+var clickHandler = function(e) {
+  console.log('testing testing');
+}
+
+chrome.contextMenus.create({
+  "id": "taghash_context"
+  "title": "Taghash",
+  "contexts": ["page", "selection", "image", "link"]
 });
 
-function click(info, tab) {
+// Must be synchronously called on event page load,
+//   for instance in the top level code
+chrome.contextMenus.onClicked.addListener(clickHandler);
 
-  // chrome.windows.create({
-  //   type: 'panel', url: 'https://translate.google.com/#auto/en'+'/'+ encodeURIComponent(info.selectionText), width: 1000, height: 382}, function(tab) {
-  //     translator_window = tab.windowId;
-  //     translator_tab = tab.id;
-  //     chrome.windows.onRemoved.addListener(function (windowId) {
-  //       if (windowId == translator_window) {
-  //         translator_window = false;
-  //         translator_tab = false;
-  //       }
-  //     });
-  //   }
-  // );
+
+// chrome.contextMenus.onClicked.addListener(function(info, tab) {
+//   if (info.menuItemId == "tr_parent") {
+//     click(info, tab);
+//   } else {
+//     // click(info, tab);
+//   }
+// });
+
+// function click(info, tab) {
+
+//   chrome.windows.create({
+//     type: 'panel', url: 'https://translate.google.com/#auto/en'+'/'+ encodeURIComponent(info.selectionText), width: 1000, height: 382}, function(tab) {
+//       translator_window = tab.windowId;
+//       translator_tab = tab.id;
+//       chrome.windows.onRemoved.addListener(function (windowId) {
+//         if (windowId == translator_window) {
+//           translator_window = false;
+//           translator_tab = false;
+//         }
+//       });
+//     }
+//   );
   
   // var data = {
   //   "startup": { "name": "api company test" },
