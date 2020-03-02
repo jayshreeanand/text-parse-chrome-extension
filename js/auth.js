@@ -29,7 +29,7 @@ function login(cf, callback) {
   chrome.identity.launchWebAuthFlow({'url': authUrl, 'interactive': true}, function (redirectUrl) {
     if (redirectUrl) {
       logger.debug('launchWebAuthFlow login successful: ', redirectUrl);
-      let parsed = parse(redirectUrl.substr(chrome.identity.getRedirectURL("oauth2").length + 1));
+      let parsed = parse(redirectUrl.substr(cf.redirectUrl.length + 1));
       token = parsed.access_token;
       logger.debug('Background login complete');
       return callback(redirectUrl); // call the original callback now that we've intercepted what we needed
