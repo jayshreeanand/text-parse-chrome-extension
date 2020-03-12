@@ -3,7 +3,7 @@
   "version": "1.0",
   "description": "Add deals to taghash directly from various websites now!",
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["js/eventPage.js"],
     "persistent": false
   },
   "permissions": [
@@ -23,7 +23,7 @@
       "matches": [
         "<all_urls>"
       ],
-      "js": ["js/jquery-3.4.1.min.js", "content.js"]
+      "js": ["js/jquery-3.4.1.min.js"]
     }
   ],
   "browser_action": {
