@@ -18,7 +18,8 @@ chrome.contextMenus.onClicked.addListener(function(clickData, tab){
     //     });
     // });
     //
-    chrome.tabs.executeScript(tab.id, { code: "document.getSelection()" }, function(DOMdata) {
+    var selection = null;
+    chrome.tabs.executeScript(tab.id, { code: "selection = document.getSelection();" }, function(DOMdata) {
       alert(JSON.stringify(DOMdata))
       chrome.storage.sync.set({'content': JSON.stringify(DOMdata) }, function(data){
       });

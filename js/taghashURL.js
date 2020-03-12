@@ -22,4 +22,8 @@ const TaghashURL = {
     method: 'POST',
     uri: '/api/v3/deals',
   },
+  TEXT_PARSE: {
+    method: 'GET',
+    uri: '/api/v3/parse'
+  }
 };
