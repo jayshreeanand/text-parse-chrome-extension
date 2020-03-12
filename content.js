@@ -1,34 +1,34 @@
-// Save it using the Chrome extension storage API.
-chrome.storage.sync.set({'foo': 'hello', 'bar': 'hi'}, function() {
-  console.log('Settings saved');
-});
+// // Save it using the Chrome extension storage API.
+// chrome.storage.sync.set({'foo': 'hello', 'bar': 'hi'}, function() {
+//   console.log('Settings saved');
+// });
+//
+// // Read it using the storage API
+// chrome.storage.sync.get(['foo', 'bar'], function(items) {
+//   console.log('Settings retrieved', items);
+// });
+//
 
-// Read it using the storage API
-chrome.storage.sync.get(['foo', 'bar'], function(items) {
-  console.log('Settings retrieved', items);
-});
-
-
-chrome.storage.sync.get(null, function(items) {
-  chrome.contextMenus.removeAll();
-  var parent = chrome.contextMenus.create({"id": "tr_parent", "title": "Add as deal to Taghash", "contexts":["selection"]});
-  // var id = chrome.contextMenus.create({"id": "tr_options", "title": "Edit as deal to taghash", "parentId": parent, "contexts":["selection"]});
-
-});
-
-var clickHandler = function(e) {
-  console.log('testing testing');
-}
-
-chrome.contextMenus.create({
-  "id": "taghash_context",
-  "title": "Taghash",
-  "contexts": ["page", "selection", "image", "link"]
-});
+// chrome.storage.sync.get(null, function(items) {
+//   chrome.contextMenus.removeAll();
+//   var parent = chrome.contextMenus.create({"id": "tr_parent", "title": "Add as deal to Taghash", "contexts":["selection"]});
+//   // var id = chrome.contextMenus.create({"id": "tr_options", "title": "Edit as deal to taghash", "parentId": parent, "contexts":["selection"]});
+//
+// });
+//
+// var clickHandler = function(e) {
+//   console.log('testing testing');
+// }
+//
+// chrome.contextMenus.create({
+//   "id": "taghash_context",
+//   "title": "Taghash",
+//   "contexts": ["page", "selection", "image", "link"]
+// });
 
 // Must be synchronously called on event page load,
 //   for instance in the top level code
-chrome.contextMenus.onClicked.addListener(clickHandler);
+// chrome.contextMenus.onClicked.addListener(clickHandler);
 
 
 // chrome.contextMenus.onClicked.addListener(function(info, tab) {

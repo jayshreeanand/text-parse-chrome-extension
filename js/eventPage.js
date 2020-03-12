@@ -1,6 +1,6 @@
 var menuItem = {
     "id": "taghash",
-    "title": "taghashDeal",
+    "title": "Taghash Deal",
     "contexts": ["selection"]
 };
 
