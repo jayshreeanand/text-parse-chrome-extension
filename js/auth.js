@@ -356,7 +356,7 @@ function deviceRegister() {
 
 }
 
-function authCheckAuthOrLogin() {
+function authCheckAuthOrLogin(callback) {
   // NOTE: Notification is only shown if popup is active
   var notifOptions = {
     type: "basic",
@@ -369,13 +369,15 @@ function authCheckAuthOrLogin() {
       authLogin(function(loginError, accessToken) {
         if (loginError) {
           // login failure
-          alert(loginError)
+          return callback(loginError);
         } else {
           chrome.notifications.create('loginNotif', notifOptions);
+          return callback(null, true);
         }
       });
     } else {
       chrome.notifications.create('loginNotif', notifOptions);
+      return callback(null, true);
     }
   });
 }
