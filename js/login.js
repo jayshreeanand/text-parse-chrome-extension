@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
   // $('#sign-in-button2').click(function(){
   //   chrome.storage.sync.set({'accessToken': '' }, function(){
   //     logger.debug("access token reset");
@@ -12,8 +12,10 @@ $(function(){
   //     });
   //   });
 
-  $('#sign-in-button').click(function() {
-    console.debug("dispatching");
-    chrome.runtime.sendMessage({ dispatch: 'checkAuthOrLogin' });
+  chrome.runtime.sendMessage({ dispatch: 'checkAuthOrLogin' }, (response) => {
+    if (response && response.success) {
+      $('#sign-in').addClass('d-none');
+      $('#add-deal').removeClass('d-none');
+    }
   });
 });
