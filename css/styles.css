@@ -5,3 +5,8 @@ body {
 form {
   padding: 20px;
 }
+
+#loader {
+  padding: 50px;
+  align-content: center;
+}
