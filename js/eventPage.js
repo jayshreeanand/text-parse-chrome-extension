@@ -6,9 +6,10 @@ var menuItem = {
 
 function isValid(value) {
     // check for validity of selected text
-  return !isNaN(value) && 
-         parseInt(Number(value)) == value && 
-         !isNaN(parseInt(value, 10));
+  // return !isNaN(value) && 
+  //        parseInt(Number(value)) == value && 
+  //        !isNaN(parseInt(value, 10));
+  return true
 }
 
 chrome.contextMenus.create(menuItem);
