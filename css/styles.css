@@ -7,6 +7,9 @@ form {
 }
 
 #loader {
+  padding: 20px;
+}
+
+#loader-gif {
   padding: 50px;
-  align-content: center;
 }
