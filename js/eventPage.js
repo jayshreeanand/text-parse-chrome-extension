@@ -4,22 +4,28 @@ var menuItem = {
     "contexts": ["selection"]
 };
 
+chrome.contextMenus.create(menuItem);
+
 function isValid(value) {
     // check for validity of selected text
-  // return !isNaN(value) && 
-  //        parseInt(Number(value)) == value && 
-  //        !isNaN(parseInt(value, 10));
   return true
 }
 
-chrome.contextMenus.create(menuItem);
+chrome.contextMenus.onClicked.addListener(function(clickData){
+  if (clickData.menuItemId == "taghash" && clickData.selectionText){
+    if (isValid(clickData.selectionText)){
+      chrome.storage.sync.get(['deal','content'], function(values){
+        // save selection in chrome storage
 
-chrome.contextMenus.onClicked.addListener(function(clickData){   
-    if (clickData.menuItemId == "taghash" && clickData.selectionText){    
-        if (isInt(clickData.selectionText)){          
-            chrome.storage.sync.get(['deal','content'], function(content){
-                // save selection in chrome storage
-            });
-        }
+        chrome.storage.sync.set({'content': selectionText }, function(){
+
+        });
+      });
     }
+  }
+});
+
+
+chrome.storage.onChanged.addListener(function(changes, storageName){
+  chrome.browserAction.setBadgeText({"text": "new"});
 });
