@@ -3,7 +3,7 @@
   "version": "1.0",
   "description": "Add deals to taghash directly from various websites now!",
   "background": {
-    "scripts": ["js/eventPage.js"],
+    "scripts": ["background.js", "js/config.js", "js/eventPage.js", "js/auth.js", "js/taghashURL.js"],
     "persistent": false
   },
   "permissions": [

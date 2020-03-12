@@ -355,3 +355,26 @@ function parse(str) {
 function deviceRegister() {
 
 }
+
+function authCheckAuthOrLogin() {
+  var notifOptions = {
+    type: "basic",
+    iconUrl: "images/icon48.png",
+    title: "Login success",
+    message: "You have successfully logged into Taghash"
+  };
+  authCheckAuthorization(function(authError, accessToken) {
+    if (authError) { // check for error codes
+      authLogin(function(loginError, accessToken) {
+        if (loginError) {
+          // login failure
+          alert(loginError)
+        } else {
+          chrome.notifications.create('loginNotif', notifOptions);
+        }
+      });
+    } else {
+      chrome.notifications.create('loginNotif', notifOptions);
+    }
+  });
+}

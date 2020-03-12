@@ -15,3 +15,11 @@
 // });
 
 //
+
+// @see https://stackoverflow.com/a/18803575
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  console.debug("request", request);
+  if(request.dispatch === "checkAuthOrLogin" ) {
+    return authCheckAuthOrLogin();
+  }
+});
