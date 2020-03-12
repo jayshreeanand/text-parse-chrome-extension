@@ -357,6 +357,7 @@ function deviceRegister() {
 }
 
 function authCheckAuthOrLogin() {
+  // NOTE: Notification is only shown if popup is active
   var notifOptions = {
     type: "basic",
     iconUrl: "images/icon48.png",

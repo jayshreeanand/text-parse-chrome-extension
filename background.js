@@ -18,7 +18,8 @@
 
 // @see https://stackoverflow.com/a/18803575
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  console.debug("request", request);
+  // Why are we handling this in background?
+  // @see https://stackoverflow.com/a/35728511
   if(request.dispatch === "checkAuthOrLogin" ) {
     return authCheckAuthOrLogin();
   }
