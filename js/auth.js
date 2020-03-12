@@ -32,7 +32,7 @@ function login(cf, callback) {
       let parsed = parse(redirectUrl.substr(cf.redirectUrl.length + 1));
       token = parsed.access_token;
       logger.debug('Background login complete');
-      return callback(redirectUrl); // call the original callback now that we've intercepted what we needed
+      return callback(token); // call the original callback now that we've intercepted what we needed
     } else {
       logger.debug("launchWebAuthFlow login failed. Is your redirect URL (" + chrome.identity.getRedirectURL("oauth2") + ") configured with your OAuth2 provider?");
       return (null);
@@ -79,4 +79,8 @@ function parse(str) {
     }
     return ret;
   }, {});
+}
+
+function deviceRegister() {
+  
 }
