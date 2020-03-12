@@ -82,5 +82,5 @@ function parse(str) {
 }
 
 function deviceRegister() {
-  
+
 }
