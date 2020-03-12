@@ -8,7 +8,7 @@ chrome.contextMenus.create(menuItem);
 
 chrome.contextMenus.onClicked.addListener(function(clickData){
   if (clickData.menuItemId == "taghash" && clickData.selectionText){
-    chrome.storage.sync.set({'content': clickData.selectionText }, function(data){
+    chrome.storage.sync.set({'content': clickData }, function(data){
       // logger.debug(data);
     });
   }
