@@ -22,6 +22,10 @@ const TaghashURL = {
     method: 'POST',
     uri: '/api/v3/deals',
   },
+  INTERNAL_NOTES_UPDATE: {
+    method: 'POST',
+    uri: 'api/v1/pipelines'
+  },
   TEXT_PARSE: {
     method: 'GET',
     uri: '/api/v3/parse'
