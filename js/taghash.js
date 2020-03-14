@@ -25,6 +25,8 @@ $("#create-deal-button").click(function() {
       .then(result => {
         if (result && result.success && result.data) {
           // post internal notes
+          $('#add-deal').addClass('d-none');
+          $('#view-deal').removeClass('d-none');
           alert("success" + result.data);
         } else {
           // unforeseen error handling
@@ -42,13 +44,20 @@ function updateInternalNotesForDeal(accessToken, dealId, callback) {
   let url = config.baseUrl + TaghashURL.INTERNAL_NOTES_UPDATE.uri + '/' + dealId + '/notes';
   const method = TaghashURL.INTERNAL_NOTES_UPDATE.method;
 
+  var notes = $("internalNotes").val();
+
+  var data = {
+    body_plain: notes
+  };
+
   fetch(url, {
     method: method,
     headers: {
       ...TaghashURL.HEADERS_COMMON,
       Authorization: `Bearer ${accessToken}`
     },
-    referrerPolicy: "no-referrer" // no-referrer, *client
+    referrerPolicy: "no-referrer", // no-referrer, *client
+    body: JSON.stringify(data)
   })
   .then(r => r.json())
   .then(result => {
