@@ -5,3 +5,10 @@ var selection = document.getSelection();
 function getDOM() {
   return document.getSelection();
 }
+
+
+$(document ).ready(function() {
+  chrome.storage.sync.get(['content'], function(data){
+    $("#internalNotes").val(data.content);
+  });
+});
