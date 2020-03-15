@@ -23,11 +23,11 @@ $("#create-deal-button").click(function() {
     })
       .then(r => r.json())
       .then(result => {
-        if (result && result.success && result.data) {
+        if (result && result.success) {
           // post internal notes
           $('#add-deal').addClass('d-none');
           $('#view-deal').removeClass('d-none');
-          alert("success" + result.data);
+          // alert("success" + result.data);
         } else {
           // unforeseen error handling
           var error = new Error(
