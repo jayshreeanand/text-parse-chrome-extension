@@ -3,7 +3,7 @@
   "version": "1.0",
   "description": "Add deals to taghash directly from various websites now!",
   "background": {
-    "scripts": ["background.js", "js/config.js", "js/eventPage.js", "js/auth.js", "js/taghashURL.js"],
+    "scripts": ["background.js", "js/jquery-3.4.1.min.js", "js/config.js","js/getDOM.js", "js/login.js","js/eventPage.js", "js/auth.js", "js/taghashURL.js", "js/taghash.js"],
     "persistent": false
   },
   "permissions": [
@@ -31,6 +31,6 @@
     "default_icon": "images/logo.png"
 
   },
-  "content_security_policy": "script-src 'self' 'unsafe-eval' https://cdn.tracxn.com; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'unsafe-eval' 'self'",
   "manifest_version": 2
 }
