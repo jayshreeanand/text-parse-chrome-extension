@@ -64,3 +64,39 @@ function updateInternalNotesForDeal(accessToken, dealId, callback) {
   })
   .catch(callback);
 }
+
+function textParse(text, callback) {
+  let url = config.baseUrl + TaghashURL.TEXT_PARSE.uri
+  const method = TaghashURL.TEXT_PARSE.method;
+
+  var data = {
+    text: text
+  };
+
+  chrome.storage.local.get(["access_token"], function(results) {
+    fetch(url, {
+      method: method,
+      headers: {
+        ...TaghashURL.HEADERS_COMMON,
+        Authorization: `Bearer ${results.access_token}`
+      },
+      referrerPolicy: "no-referrer", // no-referrer, *client
+      body: JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(result => {
+      if (result && result.success && result.data) {
+        return callback(result.data);
+      } else {
+        // unforeseen error handling
+        return callback(
+          new Error(
+            result && !result.success ? result.message : "Something went wrong"
+          )
+        );
+      }
+    })
+    .catch(callback);
+  });
+
+}

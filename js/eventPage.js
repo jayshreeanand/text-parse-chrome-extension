@@ -8,9 +8,15 @@ chrome.contextMenus.create(menuItem);
 
 chrome.contextMenus.onClicked.addListener(function(clickData, tab){
   if (clickData.menuItemId == "taghash" && clickData.selectionText){
-    chrome.storage.sync.set({'content': clickData.selectionText }, function(data){
-      //logger.debug(data)
-    });
+    textParse(clickData.selectionText, function(result) {
+      chrome.storage.sync.set({
+        'content': clickData.selectionText,
+        'startup_name': result.startup.name,
+        'startup_url': result.startup.url
+      }, function(data){
+        //logger.debug(data)
+      });
+    })
   }
 });
 

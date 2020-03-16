@@ -27,7 +27,7 @@ const TaghashURL = {
     uri: 'api/v1/pipelines'
   },
   TEXT_PARSE: {
-    method: 'GET',
-    uri: '/api/v3/parse'
+    method: 'POST',
+    uri: '/api/v3/langur/text-selection-parse'
   }
 };
