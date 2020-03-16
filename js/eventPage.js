@@ -4,7 +4,10 @@ var menuItem = {
     "contexts": ["selection"]
 };
 
-chrome.contextMenus.create(menuItem);
+// @see https://stackoverflow.com/a/37000388
+chrome.contextMenus.removeAll(function() {
+  chrome.contextMenus.create(menuItem);
+});
 
 chrome.contextMenus.onClicked.addListener(function(clickData, tab){
   if (clickData.menuItemId == "taghash" && clickData.selectionText){
