@@ -1,3 +1,5 @@
+chrome.contextMenus.removeAll();
+
 var menuItem = {
     "id": "taghash",
     "title": "Taghash Deal",
@@ -12,6 +14,7 @@ chrome.contextMenus.onClicked.addListener(function(clickData, tab){
       chrome.storage.sync.set({
         'content': clickData.selectionText,
         'startup_name': result.startup.name,
+        'startup_url': result.startup.url,
         'startup_url': result.startup.url
       }, function(data){
         //logger.debug(data)
@@ -25,6 +28,7 @@ chrome.storage.onChanged.addListener(function(changes, storageName){
   chrome.storage.sync.get(['content', 'startup_name', 'founder_email'], function(data){
     $("#internalNotes").val(data.content);
     $("#startupName").val(data.startup_name);
+    $("#startupUrl").val(data.startup_url);
     $("#founderEmail").val(data.founder_email);
   });
 });

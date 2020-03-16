@@ -11,6 +11,7 @@ $(document ).ready(function() {
   chrome.storage.sync.get(['content', 'startup_name', 'founder_email'], function(data){
     $("#internalNotes").val(data.content);
     $("#startupName").val(data.startup_name);
+    $("#startupUrl").val(data.startup_url);
     $("#founderEmail").val(data.founder_email);
   });
 });
