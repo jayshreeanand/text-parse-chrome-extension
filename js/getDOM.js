@@ -8,7 +8,9 @@ function getDOM() {
 
 
 $(document ).ready(function() {
-  chrome.storage.sync.get(['content'], function(data){
+  chrome.storage.sync.get(['content', 'startup_name', 'founder_email'], function(data){
     $("#internalNotes").val(data.content);
+    $("#startupName").val(data.startup_name);
+    $("#founderEmail").val(data.founder_email);
   });
 });

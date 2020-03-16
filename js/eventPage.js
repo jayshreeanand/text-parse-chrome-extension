@@ -4,10 +4,7 @@ var menuItem = {
     "contexts": ["selection"]
 };
 
-// @see https://stackoverflow.com/a/37000388
-chrome.contextMenus.removeAll(function() {
-  chrome.contextMenus.create(menuItem);
-});
+chrome.contextMenus.create(menuItem);
 
 chrome.contextMenus.onClicked.addListener(function(clickData, tab){
   if (clickData.menuItemId == "taghash" && clickData.selectionText){
@@ -19,8 +16,9 @@ chrome.contextMenus.onClicked.addListener(function(clickData, tab){
 
 chrome.storage.onChanged.addListener(function(changes, storageName){
   chrome.browserAction.setBadgeText({"text": "1"});
-
-  chrome.storage.sync.get(['content'], function(data){
+  chrome.storage.sync.get(['content', 'startup_name', 'founder_email'], function(data){
     $("#internalNotes").val(data.content);
+    $("#startupName").val(data.startup_name);
+    $("#founderEmail").val(data.founder_email);
   });
 });

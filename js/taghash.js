@@ -21,21 +21,11 @@ $("#create-deal-button").click(function() {
       referrerPolicy: "no-referrer", // no-referrer, *client
       body: JSON.stringify(data)
     })
-      .then(r => r.json())
-      .then(result => {
-        if (result && result.success) {
-          // post internal notes
-          $('#add-deal').addClass('d-none');
-          $('#view-deal').removeClass('d-none');
-          // alert("success" + result.data);
-        } else {
-          // unforeseen error handling
-          var error = new Error(
-            result && !result.success ? result.message : "Something went wrong"
-          );
-          alert("failure" + JSON.stringify(result));
-        }
-      });
+    .then(r => r.json())
+    .then(result => {
+      $('#add-deal').addClass('d-none');
+      $('#view-deal').removeClass('d-none');
+    });
   });
 });
 
